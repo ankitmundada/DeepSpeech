@@ -9,7 +9,7 @@ Project DeepSpeech is an open source Speech-To-Text engine. It uses a model trai
 
 Pre-built binaries that can be used for performing inference with a trained model can be installed with `pip`. Proper setup using virtual environment is recommended and you can find that documented [below](#using-the-python-package).
 
-Once installed you can then use the `deepspeech` binary to do speech-to-text on an audio file:
+Once installed you can then use the `deepspeech` binary to do speech-to-text on short, approximately 5 second, audio files (currently only WAVE files with 16-bit, 16 kHz, mono are supported in the Python client):
 
 ```bash
 pip install deepspeech
@@ -105,12 +105,12 @@ Alternatively, if you have a supported NVIDIA GPU on Linux (See the release note
 $ pip install deepspeech-gpu
 ```
 
-or update it as folllows:
+or update it as follows:
 ```
 $ pip install --upgrade deepspeech-gpu
 ```
 
-In both cases, it should take care of intalling all the required dependencies. Once it is done, you should be able to call the sample binary using `deepspeech` on your command-line.
+In both cases, it should take care of installing all the required dependencies. Once it is done, you should be able to call the sample binary using `deepspeech` on your command-line.
 
 ```bash
 deepspeech output_model.pb my_audio_file.wav alphabet.txt lm.binary trie
@@ -170,12 +170,12 @@ In addition to the bindings above, third party developers have started to provid
 
 ### Installing prerequisites for training
 
-Install the required dendencies using pip:
+Install the required dependencies using pip:
 
 ```bash
 cd DeepSpeech
-python util/taskcluster.py --target /tmp --source tensorflow --artifact tensorflow_warpctc-1.3.0rc0-cp27-cp27mu-linux_x86_64.whl
-pip install /tmp/tensorflow_warpctc-1.3.0rc0-cp27-cp27mu-linux_x86_64.whl
+python util/taskcluster.py --target /tmp --source tensorflow --artifact tensorflow_warpctc-1.4.0-cp27-cp27mu-linux_x86_64.whl
+pip install /tmp/tensorflow_warpctc-1.4.0-cp27-cp27mu-linux_x86_64.whl
 pip install -r requirements.txt
 ```
 
@@ -193,8 +193,8 @@ If you have a capable (Nvidia, at least 8GB of VRAM) GPU, it is highly recommend
 
 ```bash
 pip uninstall tensorflow
-python util/taskcluster.py --target /tmp --source tensorflow --arch gpu --artifact tensorflow_gpu_warpctc-1.3.0rc0-cp27-cp27mu-linux_x86_64.whl
-pip install /tmp/tensorflow_gpu_warpctc-1.3.0rc0-cp27-cp27mu-linux_x86_64.whl
+python util/taskcluster.py --target /tmp --source tensorflow --arch gpu --artifact tensorflow_gpu_warpctc-1.4.0-cp27-cp27mu-linux_x86_64.whl
+pip install /tmp/tensorflow_gpu_warpctc-1.4.0-cp27-cp27mu-linux_x86_64.whl
 ```
 
 ### Common Voice training data
